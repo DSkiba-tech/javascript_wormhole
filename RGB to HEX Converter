@@ -1,0 +1,30 @@
+function rgbtohex(e)
+{
+	 function hex_char(e)
+	{
+		switch(e)
+		{
+			case 10:return "A";break;
+			case 11:return "B";break;
+			case 12:return "C";break;
+			case 13:return "D";break;
+			case 14:return "E";break;
+			case 15:return "F";break;
+			default:return e;break;
+		}
+	}
+	 function divide_for_hex(e)
+		{
+			let aux = e/16,aux2;
+				if(aux==parseInt(aux)) { if(aux<10) return "0"+aux; else return hex_char(aux)+"0"; }
+				else { aux2 = aux %1; aux-=aux2; aux2*=16; return ""+hex_char(aux)+""+hex_char(aux2); }	
+		}	 
+let r="",g="",b="";
+	for(let i=0;i<e.length;i++)
+	{
+		if(e[i]=="(") { i++; while(e[i]!=",") { r+=e[i]; i++; } r=parseFloat(r); }
+		if(e[i]==",") { i++; while(e[i]!=",") { g+=e[i]; i++; } g=parseFloat(g); }
+		if(e[i]==",") { i++; while(e[i]!=")") { b+=e[i]; i++; } b=parseFloat(b); }
+	}
+	return "#"+divide_for_hex(r)+divide_for_hex(g)+divide_for_hex(b);
+}
