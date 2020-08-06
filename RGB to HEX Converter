@@ -17,7 +17,7 @@ function rgbtohex(e)
 		{
 			let aux = e/16,aux2;
 				if(aux==parseInt(aux)) { if(aux<10) return "0"+aux; else return hex_char(aux)+"0"; }
-				else { aux2 = aux %1; aux-=aux2; aux2*=16; return ""+hex_char(aux)+""+hex_char(aux2); }	
+				else { aux2 = aux%1; aux-=aux2; aux2*=16; return ""+hex_char(aux)+""+hex_char(aux2); }	
 		}	 
 let r="",g="",b="";
 	for(let i=0;i<e.length;i++)
